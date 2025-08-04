@@ -5,9 +5,8 @@ int main() {
     int k, n;
     cin >> k >> n;
 
-    int r = n % k;
-    int dist = min(r, k - r);
+    int a = n % k;
 
-    cout << dist;
+    cout << min(a, k - a);
     return 0;
 }
