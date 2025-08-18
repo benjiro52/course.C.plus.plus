@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     int n, target, sum = 0, point = 2, zero = 0;
-    //cin >> n;
+    cin >> n;
 
     vector<int> nums(5);
     for (int i = 0; i < nums.size(); i++) {
