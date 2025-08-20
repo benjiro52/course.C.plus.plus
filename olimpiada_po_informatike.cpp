@@ -2,10 +2,10 @@
 using namespace std;
 
 int main() {
-    long long N;
-    cin >> N;
+    long long a, b, c, d, ant;
+    cin >> a >> b >> c >> d;
 
-    long long ant = 8 * N * N + 12 * N + 5;
+    ant = a * b * c * d;
     cout << ant;
     return 0;
 }
