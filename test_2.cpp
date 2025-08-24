@@ -2,10 +2,23 @@
 using namespace std;
 
 int main() {
-    long long N;
-    cin >> N;
+    vector<int> nums(5);
+    for (int i = 0; i < nums.size(); i++) {
+        cin >> nums[i];
+    }
+    
+    int target;
+    cin >> target;
 
-    long long ant = 8 * N * N + 12 * N + 5;
-    cout << ant;
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = i + 1; j < nums.size(); j++) {
+            if (nums[i] + nums[j] == target) {
+                cout << i << ", " << j << endl;
+                return 0; 
+            }
+        }
+    }
+
+    cout << "Нет пары с такой суммой" << endl;
     return 0;
 }

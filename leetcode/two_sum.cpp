@@ -2,26 +2,39 @@
 using namespace std;
 
 int main() {
-    int n, target, sum = 0, point = 2, zero = 0;
-    cin >> n;
+    // unordered_map<int, int> map;
+    // int for_map = 0;
+    int start = 0, sum = 0;
+    // cin >> n;
 
     vector<int> nums(5);
     for (int i = 0; i < nums.size(); i++) {
         cin >> nums[i];
     }
+    
+    int target;
     cin >> target;
+    // sum = nums[0];
 
-    for (int i = zero; i < point; i++) {
-        sum += nums[i];
-        if  (sum < target || sum > target) {
-            zero++;
-            point++;
-            sum = 0;
-            continue;
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = i + 1; j < nums.size(); j++) {
+            // sum += nums[j];
+            if (nums[i] + nums[j] == target) {
+                cout << i << ", " << j << endl;
+                return 0;
+            }
         }
-        if (sum == target) {
-            cout << nums[i - 1] << " " << nums[i];
-            break;
-        }
+        // sum -= nums[start];
+        // start++;
+        // place++;
+        // sum += nums[i];
+
+        // if (sum == target) {
+        //     cout << place - 1 << ", " << place << endl;
+        // }
     }
+    // cout << place1 << " ";
+    // cout << sum;
+
+    return 0;
 }
