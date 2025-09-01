@@ -2,23 +2,36 @@
 using namespace std;
 
 int main() {
-    vector<int> nums(5);
-    for (int i = 0; i < nums.size(); i++) {
-        cin >> nums[i];
-    }
-    
-    int target;
-    cin >> target;
+    int n;
+    cin >> n;
 
-    for (int i = 0; i < nums.size(); i++) {
-        for (int j = i + 1; j < nums.size(); j++) {
-            if (nums[i] + nums[j] == target) {
-                cout << i << ", " << j << endl;
-                return 0; 
-            }
+    string shields;
+    while ((int)shields.size() < n) {
+        char c;
+        if (!(cin >> c)) {
+            break;
+        } 
+        if (c == '(' || c == ')') {
+            shields.push_back(c);
         }
     }
 
-    cout << "Нет пары с такой суммой" << endl;
+    int left = 1;
+    for (int i = 1; i < n; i++) {
+        if (shields[i] == shields[0]) left++;
+        else break;
+    }
+
+    int right = 1;
+    for (int i = n - 2; i >= 0; i--) {
+        if (shields[i] == shields[n - 1]) right++;
+        else break;
+    }
+
+    if (shields[0] != shields[n - 1]) {
+        cout << n;
+    } else {
+        cout << (n - min(left, right));
+    }
     return 0;
 }
