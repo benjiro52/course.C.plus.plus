@@ -7,7 +7,7 @@ int main() {
 
     int a[5000];
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
+        cin >> a[i]; 
     }
 
     int mx = a[0];
