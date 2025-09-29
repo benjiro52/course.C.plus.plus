@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    int n, m;
+    long long n, m, ant = 0;;
     cin >> n >> m;
 
     int price[100][100]; 
@@ -11,8 +11,6 @@ int main() {
             cin >> price[i][j];
         }
     }
-
-    long long ant = 0;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             int sold;
