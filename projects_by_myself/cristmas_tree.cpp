@@ -1,9 +1,15 @@
 #include <bits/stdc++.h>
 #include <thread>
 #include <chrono>
+#include <windows.h>
+#include <mmsystem.h>
+#pragma comment(lib, "winmm.lib")  
+
 using namespace std;
 
 int main() {
+    PlaySound(TEXT("C:\\Users\\User\\Downloads\\Wham_-Last-Christmas.wav"), NULL, SND_FILENAME | SND_ASYNC);
+
     const char* reset = "\033[0m";
     const char* red = "\033[31m";
     const char* green = "\033[32m";
@@ -32,7 +38,7 @@ int main() {
     srand(time(0)); 
 
     for (int frame = 0; frame < 50; ++frame) { 
-        system("clear");
+        system("cls");  
 
         for (string line : tree) {
             for (char c : line) {
@@ -50,4 +56,5 @@ int main() {
     }
 
     cout << "\nMerry Christmas! 🎅🎁" << endl;
+    return 0;
 }
