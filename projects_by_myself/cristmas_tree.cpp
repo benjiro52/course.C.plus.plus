@@ -35,16 +35,15 @@ int main() {
         "      | | |      ",
     };
 
-    srand(time(0)); 
-
-    for (int frame = 0; frame < 50; ++frame) { 
+    for (int frame = 0; frame < 50; frame++) {
         system("cls");  
+
+        const char* currentColor = colors[frame % numColors]; 
 
         for (string line : tree) {
             for (char c : line) {
                 if (c == '*') {
-                    const char* color = colors[rand() % numColors];
-                    cout << color << "*" << reset;
+                    cout << currentColor << "*" << reset;
                 } else {
                     cout << c;
                 }
@@ -52,7 +51,7 @@ int main() {
             cout << endl;
         }
 
-        this_thread::sleep_for(chrono::milliseconds(200));
+        this_thread::sleep_for(chrono::milliseconds(300)); 
     }
 
     cout << "\nMerry Christmas! 🎅🎁" << endl;
