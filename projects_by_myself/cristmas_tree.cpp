@@ -32,7 +32,7 @@ int main() {
     srand(time(0)); 
 
     for (int frame = 0; frame < 50; ++frame) { 
-        system("clear"); 
+        system("clear");
 
         for (string line : tree) {
             for (char c : line) {
@@ -49,5 +49,5 @@ int main() {
         this_thread::sleep_for(chrono::milliseconds(200));
     }
 
+    cout << "\nMerry Christmas! 🎅🎁" << endl;
 }
-
