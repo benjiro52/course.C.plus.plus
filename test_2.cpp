@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-#include <thread>
-#include <chrono>
 using namespace std;
 
 int main() {
@@ -29,24 +27,22 @@ int main() {
         "      | | |      ",
     };
 
-    srand(time(0)); 
+    for (int frame = 0; frame < 50; frame++) {
+    system("cls"); 
 
-    for (int frame = 0; frame < 50; ++frame) { 
-        system("clear"); 
+    const char* currentColor = colors[frame % numColors]; 
 
-        for (string line : tree) {
-            for (char c : line) {
-                if (c == '*') {
-                    const char* color = colors[rand() % numColors];
-                    cout << color << "*" << reset;
-                } else {
-                    cout << c;
-                }
+    for (string line : tree) {
+                for (char c : line) {
+            if (c == '*') {
+                cout << currentColor << "*" << reset;
+            } else {
+                cout << c;
             }
-            cout << endl;
         }
-
-        this_thread::sleep_for(chrono::milliseconds(200));
+        cout << endl;
     }
 
+    this_thread::sleep_for(chrono::milliseconds(300)); 
+    }
 }
