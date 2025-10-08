@@ -6,9 +6,18 @@ int main() {
     cin >> n;
 
     long long ant = 1;
-    for (long long i = 1; i < n; i++) {
-        if (n % i == 0 && (n - i) % i == 0) {
-            ant = i;
+
+    for (long long i = 1; i * i <= n; i++) {
+        if (n % i == 0) {
+            long long a = i;
+            long long b = n / i;
+
+            if ((n - a) % a == 0){
+                ant = max(ant, a);
+            } 
+            if ((n - b) % b == 0 && b < n) {
+                ant = max(ant, b);
+            }
         }
     }
 
