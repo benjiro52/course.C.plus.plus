@@ -1,19 +1,16 @@
-#include <windows.h>
-#include <mmsystem.h>
-#include <iostream>
-#pragma comment(lib, "winmm.lib")  // обязательно для PlaySound
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    cout << "Запуск музыки..." << endl;
-
-    // Укажи путь к WAV-файлу
-    PlaySound(TEXT("C:\\Users\\User\\Downloads\\Wham_-Last-Christmas.wav"), NULL, SND_FILENAME | SND_ASYNC);
-
-    cout << "Музыка играет. Нажмите Enter, чтобы остановить..." << endl;
-    cin.get();  // Ждем нажатия Enter
-
+    int n;
+    cin >> n;
+    long long a = 1, b = 2, c;
+    if (n == 1) { cout << 2; return 0; }
+    for (int i = 3; i <= n + 2; i++) {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    cout << b << endl;
     return 0;
 }
-
