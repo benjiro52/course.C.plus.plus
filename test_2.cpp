@@ -2,15 +2,8 @@
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
-    long long a = 1, b = 2, c;
-    if (n == 1) { cout << 2; return 0; }
-    for (int i = 3; i <= n + 2; i++) {
-        c = a + b;
-        a = b;
-        b = c;
-    }
-    cout << b << endl;
+    long long N, M;
+    cin >> N >> M;
+    cout << N * M - N - M + 1;
     return 0;
 }
