@@ -2,33 +2,24 @@
 using namespace std;
 
 int main() {
-    long long N, A, B;
-    cin >> N >> A >> B;
-
-    long long ans = 0;
+    long long n, a, b, ant = 0;
+    cin >> n >> a >> b;
 
     while (true) {
-        bool ok = false;
-        if (N >= 3 && B > 0) {
-            long long need3 = min(B, N / 3);
-            long long rest = N - need3 * 3;
-
-            if (rest <= A) {
-                A -= rest;
-                B -= need3;
-                ans++;
-                ok = true;
-            }
+        long long max_3 = min(b, n / 3);
+        long long need_1 = n - max_3 * 3;
+        if (need_1 <= a && max_3 >= 0) {
+            ant++;
+            a -= need_1;
+            b -= max_3;
+        } else if (a >= n) {
+            ant++;
+            a -= n;
+        } else {
+            break;
         }
-
-        if (!ok && A >= N) {
-            A -= N;
-            ans++;
-            ok = true;
-        }
-
-        if (!ok) break;
     }
+    cout << ant;
 
-    cout << ans;
+    return 0;
 }
