@@ -1,19 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+class christmastree {
+private:
     const char* reset = "\033[0m";
-    const char* red = "\033[31m";
-    const char* green = "\033[32m";
-    const char* yellow = "\033[33m";
-    const char* blue = "\033[34m";
-    const char* purple = "\033[35m";
-    const char* white = "\033[37m";
-
-    const char* colors[] = { yellow, red, green, blue, purple, white };
-    int numColors = 6;
-
-    string tree[] = {
+    const char* colors[6] = { "\033[33m", "\033[31m", "\033[32m", "\033[34m", "\033[35m", "\033[37m" };
+    vector<string> tree = {
         "        *        ",
         "       ***       ",
         "      *****      ",
@@ -24,25 +16,50 @@ int main() {
         " *************** ",
         "*****************",
         "      | | |      ",
-        "      | | |      ",
+        "      | | |      "
     };
+    vector<string> footertext;
+    int treeheight;
+    int delayms;
+    bool running;
 
-    for (int frame = 0; frame < 50; frame++) {
-    system("cls"); 
+public:
+    christmastree(int delay = 150) : treeheight(tree.size()), delayms(delay), running(true) {
+        srand(time(0));
+    }
 
-    const char* currentColor = colors[frame % numColors]; 
-
-    for (string line : tree) {
-                for (char c : line) {
-            if (c == '*') {
-                cout << currentColor << "*" << reset;
-            } else {
-                cout << c;
+    void drawframe() {
+        cout << "\033[" << treeheight + footertext.size() << "A";
+        for (auto& line : tree) {
+            for (char c : line) {
+                if (c == '*') {
+                    if (rand() % 3 == 0)
+                        cout << colors[rand() % 6] << "*" << reset;
+                    else
+                        cout << "*";
+                } else {
+                    cout << c;
+                }
             }
+            cout << endl;
         }
-        cout << endl;
+        for (auto& line : footertext)
+            cout << line << endl;
     }
 
-    this_thread::sleep_for(chrono::milliseconds(300)); 
+    void start() {
+        for (auto& line : tree) cout << line << endl;
+        for (auto& line : footertext) cout << line << endl;
+        while (running) {
+            drawframe();
+            this_thread::sleep_for(chrono::milliseconds(delayms));
+        }
     }
+
+    void stop() { running = false; }
+};
+
+int main() {
+    christmastree tree(150);
+    tree.start();
 }
