@@ -14,6 +14,9 @@ int main() {
     this_thread::sleep_for(chrono::seconds(3));
     cout << "Ooh-woah";
 
+    this_thread::sleep_for(chrono::seconds(4));
+    cout << "Ooh-woah";
+
     this_thread::sleep_for(chrono::seconds(270));
 
     return 0;
