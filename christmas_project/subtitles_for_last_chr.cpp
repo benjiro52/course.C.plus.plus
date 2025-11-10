@@ -12,10 +12,16 @@ int main() {
     cout << "Ah, ah-ah" << endl;
 
     this_thread::sleep_for(chrono::seconds(3));
-    cout << "Ooh-woah";
+    cout << "Ooh-woah" << endl;
+
+    this_thread::sleep_for(chrono::seconds(5));
+    cout << "Oh-oh" << endl;
+
+    this_thread::sleep_for(chrono::seconds(6));
+    cout << "Last Christmas, I gave you my heart" << endl;
 
     this_thread::sleep_for(chrono::seconds(4));
-    cout << "Ooh-woah";
+    cout << "But the very next day, you gave it away" << endl;
 
     this_thread::sleep_for(chrono::seconds(270));
 
