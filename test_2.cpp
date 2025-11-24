@@ -2,21 +2,29 @@
 using namespace std;
 
 int main() {
-    vector<int> flowerbed = {1, 0, 0, 0, 1};
-    int n = 1;
-    int ans = 0;
+    int n;
+    cin >> n;
 
-    for (int i = 0; i < flowerbed.size(); i++) {
-        if ((i == 0 || flowerbed[i - 1] == 0) && (i == flowerbed.size() - 1 || flowerbed[i + 1] == 0) && flowerbed[i] == 0) {
-            flowerbed[i] = 1; 
-            ans++;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    vector<pair<int, int>> ans;
+
+    ans.push_back({1, a[0]});
+
+    for (int i = 1; i < n; i++) {
+        if (a[i] < a[i - 1]) {
+            ans.push_back({i + 1, a[i]});
         }
     }
 
-    if (ans >= n) {
-        cout << "true";
-    } else {
-        cout << "false";
+    cout << ans.size() << "\n";
+
+    for (int i = 0; i < (int)ans.size(); i++) {
+        cout << ans[i].first << " " << ans[i].second << "\n";
     }
+
     return 0;
 }
