@@ -2,29 +2,24 @@
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
+    int H1, M1, H2, M2;
+    if (!(cin >> H1 >> M1 >> H2 >> M2)) return 0;
 
-    vector<int> a(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-    }
+    int start = H1 * 60 + M1;
+    int endt  = H2 * 60 + M2;
 
-    vector<pair<int, int>> ans;
-
-    ans.push_back({1, a[0]});
-
-    for (int i = 1; i < n; i++) {
-        if (a[i] < a[i - 1]) {
-            ans.push_back({i + 1, a[i]});
+    int ans = 0;
+    for (int t = start + 1; t <= endt - 1; ++t) {
+        int minute = t % 60;
+        if (minute == 30) {
+            ans += 1;           
+        } else if (minute == 0) {
+            int hour = (t / 60) % 12; 
+            if (hour == 0) hour = 12;
+            ans += hour;
         }
     }
 
-    cout << ans.size() << "\n";
-
-    for (int i = 0; i < (int)ans.size(); i++) {
-        cout << ans[i].first << " " << ans[i].second << "\n";
-    }
-
+    cout << ans << '\n';
     return 0;
 }
