@@ -2,24 +2,13 @@
 using namespace std;
 
 int main() {
-    int H1, M1, H2, M2;
-    if (!(cin >> H1 >> M1 >> H2 >> M2)) return 0;
+    long long A, B, C, D;
+    cin >> A >> B >> C >> D;
 
-    int start = H1 * 60 + M1;
-    int endt  = H2 * 60 + M2;
+    long long total = A + B + C + D;
 
-    int ans = 0;
-    for (int t = start + 1; t <= endt - 1; ++t) {
-        int minute = t % 60;
-        if (minute == 30) {
-            ans += 1;           
-        } else if (minute == 0) {
-            int hour = (t / 60) % 12; 
-            if (hour == 0) hour = 12;
-            ans += hour;
-        }
-    }
+    if (abs(B - C) <= 1) cout << total;
+    else cout << total - 1;
 
-    cout << ans << '\n';
     return 0;
 }
