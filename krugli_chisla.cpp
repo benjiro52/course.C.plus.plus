@@ -14,13 +14,14 @@ int main() {
     }
 
     while (x > 0) {
-        if (x % 2 == 0)
+        if (x % 2 == 0) {
             s = '0' + s;
-        else
+        } else {
             s = '5' + s;
+        }
         x /= 2;
     }
-
+    
     cout << s;
     return 0;
 }
