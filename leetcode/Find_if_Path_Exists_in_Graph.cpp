@@ -32,7 +32,7 @@ bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
             if (visited[neighbour] != 1) {
                 visited[source] = 1;
                 q.push(neighbour);
-            }
+            }   
         }
     }
     

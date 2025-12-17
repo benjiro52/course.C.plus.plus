@@ -13,5 +13,5 @@ int main() {
         fact %= 1000000; 
     }
     cout << fact % 10;
-    return 0;
+    return 0; 
 }
