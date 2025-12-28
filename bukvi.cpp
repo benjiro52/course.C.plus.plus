@@ -9,11 +9,12 @@ int main() {
 
     if (N >= 2) T[2] = 1;
     if (N >= 3) T[3] = 1;
-    
+
     for (int i = 4; i <= N; ++i) {
         T[i] = T[i - 2] + T[i - 3];
+
     }
     cout << T[N] << endl;
-
     return 0;
+    
 }
