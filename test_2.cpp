@@ -2,25 +2,25 @@
 using namespace std;
 
 int main() {
-    long long K;
-    cin >> K;
+    int m, n;
+    cin >> m >> n;
 
-    long long x = K - 1;
-    string s = "";
+    for (int i = m; i <= n; i++) {
+        int sq = i * i;
 
-    if (x == 0) {
-        cout << 0;
-        return 0;
+        int t = i;
+        int p = 1;
+
+
+        while (t > 0) {
+            p *= 10;
+            t /= 10;
+        }
+
+        if (sq % p == i) {
+            cout << i << " " << sq << " ";
+        }
     }
 
-    while (x > 0) {
-        if (x % 2 == 0)
-            s = '0' + s;
-        else
-            s = '5' + s;
-        x /= 2;
-    }
-
-    cout << s;
     return 0;
 }
