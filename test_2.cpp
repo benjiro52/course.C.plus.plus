@@ -2,25 +2,17 @@
 using namespace std;
 
 int main() {
-    int m, n;
-    cin >> m >> n;
+    long long a, b, c;
+    int k;
+    cin >> a >> b >> c >> k;
 
-    for (int i = m; i <= n; i++) {
-        int sq = i * i;
+    long long ans = 0;
 
-        int t = i;
-        int p = 1;
+    if (k == 0) ans = max(a-2,0LL) * max(b-2,0LL) * max(c-2,0LL);          // inside
+    else if (k == 1) ans = 2 * (max(a-2,0LL)*max(b-2,0LL) + max(a-2,0LL)*max(c-2,0LL) + max(b-2,0LL)*max(c-2,0LL)); // faces
+    else if (k == 2) ans = 4 * (max(a-2,0LL) + max(b-2,0LL) + max(c-2,0LL)); // edges
+    else if (k == 3) ans = 8; // corners
+    else ans = 0; // impossible
 
-
-        while (t > 0) {
-            p *= 10;
-            t /= 10;
-        }
-
-        if (sq % p == i) {
-            cout << i << " " << sq << " ";
-        }
-    }
-
-    return 0;
+    cout << ans << endl;
 }
