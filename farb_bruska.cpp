@@ -9,7 +9,7 @@ int main() {
     long long total = a * b * c;
     long long inner = max(0LL, (a - 2) * (b - 2) * (c - 2));
     long long face = 0, edge = 0, corner = 8;
-    // 
+ 
     if (a > 2 && b > 2) face += 2 * (a - 2) * (b - 2);
     if (a > 2 && c > 2) face += 2 * (a - 2) * (c - 2);
     if (b > 2 && c > 2) face += 2 * (b - 2) * (c - 2);
