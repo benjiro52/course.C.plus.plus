@@ -1,18 +1,43 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    long long a, b, c;
-    int k;
-    cin >> a >> b >> c >> k;
+    int w, h, k;
+    cin >> w >> h >> k;
+    int ant = 0;
 
-    long long ans = 0;
-
-    if (k == 0) ans = max(a-2,0LL) * max(b-2,0LL) * max(c-2,0LL);          // inside
-    else if (k == 1) ans = 2 * (max(a-2,0LL)*max(b-2,0LL) + max(a-2,0LL)*max(c-2,0LL) + max(b-2,0LL)*max(c-2,0LL)); // faces
-    else if (k == 2) ans = 4 * (max(a-2,0LL) + max(b-2,0LL) + max(c-2,0LL)); // edges
-    else if (k == 3) ans = 8; // corners
-    else ans = 0; // impossible
-
-    cout << ans << endl;
+    for (int a = 1; a <= w; ++a) {
+        if (w % a != 0) {
+            continue;
+        }
+        for (int b = 1; b <= h; ++b) {
+            if (h % b != 0) {
+                continue;
+            }
+            int cnt = (w / a) * (h / b);
+            if (cnt == k) {
+                ant++;
+            }
+        }
+    }
+    if (w != h) {
+        for (int a = 1; a <= h; ++a) {
+            if (h % a != 0){
+                continue;
+            } 
+            for (int b = 1; b <= w; ++b) {
+                if (w % b != 0) {
+                    continue;
+                }
+                if (a == b) {
+                    continue;
+                } 
+                int cnt = (h / a) * (w / b);
+                if (cnt == k) {
+                    ant++;
+                }
+            }
+        }
+    }
+    cout << ant;
 }
