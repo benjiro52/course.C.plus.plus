@@ -18,7 +18,7 @@ int main() {
     if (a > target) moves += a - target;
     if (b > target) moves += b - target;
     if (c > target) moves += c - target;
-
+    // 
     cout << moves;
     return 0;
 }
