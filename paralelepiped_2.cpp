@@ -4,15 +4,21 @@ using namespace std;
 int main() {
     int k;
     cin >> k;
+
     while (k--) {
         long long a, b, h;
         cin >> a >> b >> h;
 
-        if (a == 1 || b == 1 || h == 1) {
-           cout << "YES" << endl; 
+        int ones = (a == 1) + (b == 1) + (h == 1);
+
+        if (ones >= 2) {
+            cout << "NO" << endl;
+        }
+        else if (a % 2 == 1 && b % 2 == 1 && h % 2 == 1) {
+            cout << "NO" << endl;
         }
         else {
-            cout << "NO";
+            cout << "YES" << endl;
         }
     }
 
