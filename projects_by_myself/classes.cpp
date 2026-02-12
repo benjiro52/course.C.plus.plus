@@ -1,17 +1,23 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
+
+class car {
+public:
+    string color;
+    int speed;
+
+    void showInfo () {
+        cout << "Color: " << color << endl << "Speed: " << speed;
+    }
+};
+    
 int main() {
-    class my_class {
-        public: 
-        int num;
-        string str;
-    };
-    my_class obj;
+    car myCar;
 
-    obj.num = 15;
-    obj.str = "Some text";
+    myCar.color = "black";
+    myCar.speed = 200;
+    
+    myCar.showInfo();
 
-    cout << obj.str << "\n" << obj.num;
-    return 0;
 }
