@@ -12,7 +12,7 @@ int main() {
             bad.push_back(i);
         }
     }
-
+    
     if (bad.size() == 0) {
         cout << "YES";
         return 0;
@@ -30,7 +30,7 @@ int main() {
             return 0;
         }
     }
-
+    
     cout << "NO";
     return 0;
 }
