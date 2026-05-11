@@ -2,16 +2,31 @@
 using namespace std;
 
 int main() {
-    int n; 
+    int n;
     cin >> n;
-    vector<int> a(n + 1, n); 
 
-    a[0] = 0;
+    int s = sqrt(n);
+    if (s * s == n) {
+        cout << 1; 
+        return 0; 
+    }
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j * j <= i; j++) {
-            a[i] = min(a[i], a[i - j * j] + 1);
+    int tmp = n;
+    while (tmp % 4 == 0) {
+        tmp /= 4;
+    }
+    if (tmp % 8 == 7) {
+        cout << 4; 
+        return 0; 
+    }
+    
+    for (int a = 1; a * a <= n; a++) {
+        int b = sqrt(n - a * a);
+        if (b * b == n - a * a) {
+            cout << 2;
+            return 0; 
         }
     }
-    cout << a[n];   
+    
+    cout << 3;
 }
