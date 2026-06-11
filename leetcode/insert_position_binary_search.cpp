@@ -7,6 +7,7 @@ int main() {
     
     int l = 0, r = nums.size() - 1;
     int mid = 0;
+    
     while (l <= r) {
         mid = (l + r) / 2;
         if (nums[mid] < target) {
@@ -15,11 +16,9 @@ int main() {
             r = mid - 1;
         } else {
             cout << mid;
-            return 0;
-        }
+        } 
+
     }
-
     cout << l;
-
     return 0;
 }
