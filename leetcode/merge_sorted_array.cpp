@@ -18,6 +18,11 @@ int main() {
         }
         k--;
     }
+    while (j >= 0) {
+        nums1[k] = nums2[j];
+        j--;
+        k--;
+    }
     
     for (int i = 0; i < nums1.size(); i++) {
         cout << nums1[i] << " ";
