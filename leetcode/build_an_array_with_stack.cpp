@@ -8,7 +8,21 @@ int main() {
     int k = 0;
     vector<int> nums(n);
 
-    
+    for (int i = 0; i < n; i++) {
+        nums[i] = i + 1;
+    } 
+
+   for (int i = 0; i < n; i++) {
+        if (k == target.size()) {
+            break;
+        }
+        if (target[k] == nums[i]) { 
+            cout << "Push ";
+            k++;
+        } else if (target[k] != nums[i]) {
+            cout << "Push Pop ";
+        }
+    }
 
     return 0;
 }
