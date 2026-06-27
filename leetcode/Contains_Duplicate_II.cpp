@@ -16,7 +16,7 @@ int main() {
         }
         last_index[nums[i]] = i; 
     }
-    // for (int i = 0; i < nums.size(); i++) {
+    // for (int i = 0; i < nums.size(); i++) {hh
     //     for (int j = 1; j < nums.size(); j++) {
     //         if (nums[i] == nums[j] && i != j) {
     //             if (abs(i - j) <= k) {
