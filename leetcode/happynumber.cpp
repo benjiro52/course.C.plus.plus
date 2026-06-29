@@ -3,9 +3,8 @@ using namespace std;
 
 int main() {
     int n = 19;
-    int ans = 0;
-    set<int> st;
-
+    set<int> st;    
+    
     while (n != 1) {
         if (st.count(n)) {
             cout << "false";
@@ -13,17 +12,18 @@ int main() {
         }
         st.insert(n);
 
-        int sum = 0;
-        int ans = n;
-        while (ans > 0) {
-            int digit = ans % 10;
-            sum += digit * digit;
-            ans /= 10;
-        }  
+        int ans = 0;
+        int temp = n;
+        
+        while (temp > 0) {
+            int digit = temp % 10;
+            ans += digit * digit;
+            temp /= 10;
+        }
 
-        n = sum;
+        n = ans;
     }
-
-    cout << "false";
+    cout << "true";
+    
     return 0;
 }
