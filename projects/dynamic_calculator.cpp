@@ -30,31 +30,3 @@ int main() {
 
     cout << "Answer: " << ans;
 }
-// nums = []
-// signs = []
-
-// print("Введи числа и знаки (для завершения введи '=')")
-
-// first = int(input())
-// nums.append(first)
-
-// while True:
-//     sign = input()
-//     if sign == '=':
-//         break
-//     signs.append(sign)
-//     num = int(input())
-//     nums.append(num)
-
-// ans = nums[0]
-// for i in range(1, len(nums)):
-//     if signs[i - 1] == '+':
-//         ans += nums[i]
-//     elif signs[i - 1] == '-':
-//         ans -= nums[i]
-//     elif signs[i - 1] == '*':
-//         ans *= nums[i]
-//     elif signs[i - 1] == '/':
-//         ans //= nums[i]
-
-// print(f"Answer: {ans}")

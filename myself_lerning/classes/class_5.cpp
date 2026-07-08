@@ -19,7 +19,7 @@ public:
     }
 
     void printBook() {
-        cout << "Title: " << title << endl << "Autor: " << autor << endl << "Year: " << year << endl;
+        cout << "Title: " << title << endl << "Autor: " << autor << endl << "Year: " << year << endl << "______________________" << endl;
     }
 };
 
