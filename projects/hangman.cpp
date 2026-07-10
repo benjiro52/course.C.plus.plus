@@ -3,8 +3,10 @@ using namespace std;
 
 int main() {
     bool start_game = true;
-    vector <string> words = {"Akashi", "Kise", "Midorima", "Murasakibara", "Kuroku", "Aomine"};
-    vector <string> symbols_words = {"_ _ _ _ _ _", "_ _ _ _", "_ _ _ _ _ _ _ _", "_ _ _ _ _ _", "_ _ _ _ _ _"};
+    int mistakes = 0;
+    int check = 0;
+    int a = 0;
+    vector <string> words = {"akashi", "kise", "midorima", "murasakibara", "aomine"};
     vector<string> hangman = {
         // 0 ошибок
         "  +---+\n"
@@ -71,12 +73,59 @@ int main() {
     };
 
     srand(time(0));
-    int index = rand() % 6; 
-    cout << "Your word is: " << symbols_words[index] << endl << endl;
-    while (start_game) {
-        
+    int index = rand() % words.size();
+
+    string secret = words[index];
+    vector<char> guessed(secret.size(), '_');
+
+    while (start_game) {         
+        cout << endl;
+        cout << "Your word: ";
+        for (int i = 0; i < guessed.size(); i++) {
+            cout << guessed[i] << " ";
+        }
+        cout << endl;
+
+        char letter;
+        cout << "Letter: ";
+        cin >> letter;
+        bool found = false;
+
+        for (int i = 0; i < secret.size(); i++) {
+            if (secret[i] == letter) {
+                found = true;
+                guessed[i] = letter;
+                check++;
+            }
+            
+        }
+
+        bool win = true;
+        for (int i = 0; i < guessed.size(); i++) {
+            if (guessed[i] == '_') {
+                win = false;
+                break;
+            }
+        }
+
+        if (found == true) {
+            for (int i = 0; i < guessed.size(); i++) {
+                cout << guessed[i] << " ";
+            }
+        } else if (found == false) {
+            cout << hangman[a];
+            a++;
+        }
+
+        if (a == 7) {
+            cout << endl;
+            cout << "You lost";
+            return 0;
+        }
+        if (win) {
+            cout << endl;
+            cout << "You won!!!";
+            return 0;
+        }
     }
-
-
-    
 }
