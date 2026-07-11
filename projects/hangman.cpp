@@ -6,7 +6,7 @@ int main() {
     int mistakes = 0;
     int check = 0;
     int a = 0;
-    vector <string> words = {"akashi", "kise", "midorima", "murasakibara", "aomine"};
+    vector <string> words = {"elephant", "rainbow", "keyboard", "mountain", "umbrella"};
     vector<string> hangman = {
         // 0 ошибок
         "  +---+\n"
@@ -108,11 +108,11 @@ int main() {
             }
         }
 
-        if (found == true) {
+        if (found) {
             for (int i = 0; i < guessed.size(); i++) {
                 cout << guessed[i] << " ";
             }
-        } else if (found == false) {
+        } else {
             cout << hangman[a];
             a++;
         }
@@ -120,12 +120,12 @@ int main() {
         if (a == 7) {
             cout << endl;
             cout << "You lost";
-            return 0;
+            start_game = false;
         }
         if (win) {
             cout << endl;
             cout << "You won!!!";
-            return 0;
+            start_game = false;
         }
     }
 }
