@@ -1,22 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Dog {
+class myClass {
 public:
-    string name;
+    int* data;
 
-    Dog(string n) {          // конструктор
-        name = n;
-        cout << name << " created!" << endl;
+    myClass(int size) {
+        this-> data = new int[size];
+
+        for (int i = 0; i < size; i++) {
+            data[i] = i;
+        }
+        cout << "Started konstruktor" << this << endl;
+    }
+    myClass(const myClass &other) {
+        this-> data = other.data;
+        cout << "Started konstruktor copie" << this << endl;
     }
 
-    ~Dog() {                 // деструктор — имя класса с ~ впереди
-        cout << name << " destroyed!" << endl;
+    ~myClass() {
+        cout << "Ended konstruktor" << this << endl;
+        delete[] data;
     }
 };
 
+
+
 int main() {
-    cout << "Start" << endl;
-    Dog myDog("Rex");   // конструктор вызывается тут
-    cout << "Middle" << endl;
-}// а тут, при выходе из main(), объект myDog уничтожается — вызывается деструктор
+    myClass mc(10);
+    myClass mc2(mc);
+
+    return 0;
+}
