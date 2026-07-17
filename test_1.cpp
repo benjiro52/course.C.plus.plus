@@ -1,12 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+auto add(int n) {
+    return [n](int m) {
+        int ans = 0;
+        ans += n;
+        ans += m;
+        return ans;
+    };
+}
+
 int main() {
-    int n = 942;
-    int ans = 0;
-    while (n > 0) {
-        ans += n % 10;
-        n / 10;
-    }
-    cout << ans;
+    cout << add(1)(2); // выведет 3
 }
