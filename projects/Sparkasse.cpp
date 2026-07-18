@@ -13,7 +13,7 @@ public:
         balance = balance_;
     }
 
-    void Deposit(double deposit_sum) {
+    void deposit(double deposit_sum) {
         if (deposit_sum >= 0) {
             balance += deposit_sum;
         }
@@ -34,31 +34,98 @@ public:
         cout << "Name: " << name << endl;
         cout << "The account number is: " << name_schet << endl;
         cout << "The balance is: " << balance << endl;
+        cout << "_____________________" << endl;
     }
 };
 
 int main() {
-    vector<Account> acc;
-    int n = 5;;
+    vector<Account> vec_accounts;
+    bool start_end = true;
 
-    for (int i = 0; i < n; i++) {
-        string name;
-        string account;
-        double balance;
+    while (start_end) {
+        int action;
+        cout << "1.Create a bank account" << endl;;
+        cout << "2.Deposit" << endl;
+        cout << "3.Withdraw" << endl;
+        cout << "4.View balance" << endl;
+        cout << "5.View accounts" << endl;
+        cout << "6.Quit" << endl;
+        cin >> action;
 
-        cout << "Name: ";
-        cin >> name;
+        if (action == 1) {
+            string name_of_user;
+            string name_schet;
+            double balance_of_user;
 
-        cout << "Account: ";
-        cin >> account;
+            cout << "Name of user: ";
+            cin >> name_of_user;
+            
+            cout  << "Name of the bank account: ";
+            cin >> name_schet;
 
-        cout << "Balance: ";
-        cin >> balance;
+            cout  << "Balance: ";
+            cin >> balance_of_user;
+            Account acc(name_of_user, name_schet, balance_of_user);
+            vec_accounts.push_back(acc);
+        }
 
-        cout << "_____________________" << endl;
-        acc.push_back(Account(name, account, balance));
-    }
-    while (true) {
+        if (action == 2) {
+            if (vec_accounts.size() == 0) {
+                cout << "No accounts found" << endl;
+            } else {
+                int account_number;
+                double deposit_sum2;
+                cout << "Which account?" << endl;
+                for (int i = 0; i < vec_accounts.size(); i++) {
+                    vec_accounts[i].showInfo();
+                }
+                cin >> account_number;
+                cout << "Your deposit in $: "; cin >> deposit_sum2;
+                vec_accounts[account_number - 1].deposit(deposit_sum2);
+            }
+        }
         
+        if (action == 3) {
+            if (vec_accounts.size() == 0) {
+                cout << "No accounts found" << endl;
+            } else {
+                int account_number;
+                double withdraw_sum2;
+                cout << "Which account?" << endl;
+                for (int i = 0; i < vec_accounts.size(); i++) {
+                    vec_accounts[i].showInfo();
+                }
+                cin >> account_number;
+                cout << "Your withdraw in $: "; cin >> withdraw_sum2;
+                vec_accounts[account_number - 1].withdraw(withdraw_sum2);
+            }
+        }
+
+        if (action == 4) {
+            if (vec_accounts.size() == 0) {
+                cout << "No accounts found" << endl;
+            } else {
+                 for (int i = 0; i < vec_accounts.size(); i++) {
+                    vec_accounts[i].getBalance();
+                }
+            }
+        }
+
+        if (action == 5) {
+            if (vec_accounts.size() == 0) {
+                cout << "No accounts found" << endl;
+            } else {
+                for (int i = 0; i < vec_accounts.size(); i++) {
+                    vec_accounts[i].showInfo();
+                }
+            }
+        }
+
+        if (action == 6) {
+            cout << "Bye";
+            start_end = false;
+        }
     }
+
+    return 0;
 }
