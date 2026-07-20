@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main () {
-    string a = "hello";
+class Playlist {
+    
+};
+
+int main() {
+
 }
