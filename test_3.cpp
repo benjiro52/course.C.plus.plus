@@ -2,10 +2,15 @@
 using namespace std;
 
 int main() {
-    int n = 52;
+    int a = 67;
+    int nums = 0; 
+    
+    while (nums <= a) {
+        if (nums % 2 == 0) {
+            cout << nums << " ";
+        }
 
-    while (n >= 0) {
-        cout << n << " ";
-        n--;
+        nums++;
     }
+    // kursi ptohodil
 }
