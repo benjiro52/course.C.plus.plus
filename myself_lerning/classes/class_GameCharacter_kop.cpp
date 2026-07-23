@@ -9,7 +9,7 @@ private:
 public:
     GameCharacter(string name_, int health_, int level_) {
         name = name_;
-        health = health_;
+        health = health_;   
         level = level_;
     }
 

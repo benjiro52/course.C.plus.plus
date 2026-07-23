@@ -1,16 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    int a = 67;
-    int nums = 0; 
-    
-    while (nums <= a) {
-        if (nums % 2 == 0) {
-            cout << nums << " ";
-        }
+class Point {
+private:
+    double x, y;
+public:
+    Point(double x_, double y_) : x{x_}, y{y_} {}
 
-        nums++;
-    }
-    // kursi ptohodil
+};
+    
+int main() {
+    cout << "hi)";
 }
