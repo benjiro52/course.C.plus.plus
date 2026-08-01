@@ -6,4 +6,5 @@ int main() {
     *pa = 10;
     cout << *pa;
     delete pa;
+    // i am fucking back
 }
