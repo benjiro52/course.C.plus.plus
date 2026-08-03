@@ -9,5 +9,5 @@ protected:
 };
 
 int main() {
-    // bol
+    // 2 in a row
 }
