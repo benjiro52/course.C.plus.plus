@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    PlaySound(TEXT("Wham_-Last-Christmas.wav"), nullptr, SND_FILENAME | SND_ASYNC);
+    // PlaySound(TEXT("Wham_-Last-Christmas.wav"), nullptr, SND_FILENAME | SND_ASYNC);
 
     this_thread::sleep_for(chrono::seconds(5));
     cout << "Ah, ah-ah" << endl;

@@ -1,16 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isEven(int n) {
-    if (n % 2 == 0) {
-        return true;
-    } else return false;
+int PlusOne(int n) {
+    return n + 1;
+}
+
+void Print() {
+    cout << "lazy" << endl;
 }
 
 int main() {
-    int ans;
-    cin >> ans;
-    cout << isEven(ans);
-
+    Print();
+    cout << PlusOne(10);
     return 0;
 }

@@ -1,14 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-class Point {
-private:
-    double x, y;
-public:
-    Point(double x_, double y_) : x{x_}, y{y_} {}
-
-};
     
 int main() {
-    cout << "hi)";
+    int arr[6] = {10, 25, 3, 47, 8, 16};
+    int ans = arr[0];
+    
+    for (int i = 1; i < 6; i++) { 
+        if (arr[i] > ans) {
+            ans = arr[i]; 
+        }
+    }
+    
+    cout << ans;
 }
