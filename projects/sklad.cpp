@@ -2,7 +2,7 @@
 using namespace std;
 
 class Product{
-protected:
+private:
     string name;
     int artikul;
     int amount;
@@ -21,6 +21,9 @@ public:
     int getAmount() {
         return amount;
     }
+    double getPrice() {
+        return price;
+    }
     void getInfo() {
         cout << "Name: " << name << endl;
         cout << "Artikul: " << artikul << endl;
@@ -32,6 +35,14 @@ public:
         amount += n;
     }
 };
+
+bool compareByAmount(Product a, Product b) {
+    return a.getAmount() < b.getAmount();
+}
+
+bool compareByPrice(Product a, Product b) {
+    return a.getPrice() < b.getPrice();
+}
 
 class Warehouse {
 private:
@@ -74,6 +85,13 @@ public:
             }
         }
     }
+    void sortByAmount() {
+        sort(sklad.begin(), sklad.end(), compareByAmount);
+    }
+
+    void sortByPrice() {
+        sort(sklad.begin(), sklad.end(), compareByPrice);
+    }
 };
 
 void clearConsole() {
@@ -92,7 +110,8 @@ int main() {
         cout << "2.Delete a product" << endl;
         cout << "3.Find a product" << endl;
         cout << "4.Change of the amount" << endl;
-        cout << "5.Exit" << endl;
+        cout << "5.Sort products" << endl;
+        cout << "6.Exit" << endl;
         cin >> action;
 
         if (action == 1) {
@@ -105,7 +124,7 @@ int main() {
             cout << "Name of the product: "; cin >> action_name; 
             cout << "Artikul of the product: "; cin >> action_artikul;
             cout << "Amount of the product: "; cin >> action_amount;
-            cout << "Price if the product: "; cin >> action_price;   
+            cout << "Price of the product: "; cin >> action_price;   
 
             Product prod(action_name, action_artikul, action_amount, action_price);
             wr.addProduct(prod);
@@ -142,6 +161,23 @@ int main() {
         }
 
         if (action == 5) {
+            clearConsole();
+            wr.printSklad();
+            int sort_products;
+
+            cout << "1.Sort by amount" << endl;
+            cout << "2.Sort by price" << endl;
+            cin >> sort_products;
+
+            if (sort_products == 1) {
+                wr.sortByAmount();
+            }
+            if (sort_products == 2) {
+                wr.sortByPrice();
+            }
+        }
+
+        if (action == 6) {
             start_end = false;
         }
     }
