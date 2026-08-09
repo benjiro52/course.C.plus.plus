@@ -1,12 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void clearConsole() {
-    cout << "\033[2J\033[1;1H";
+bool isEven(int x){
+    return x / 2;
 }
     
 int main() {
-    cout << "hello" << endl;
-    clearConsole();
-    cout << "hi";
 }

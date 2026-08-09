@@ -4,16 +4,19 @@ using namespace std;
 class Character {
 protected:
     string name;
-    int hp = 100;
+    int hp;
     int MaxHp;
-    int atack = 2;
-    int defence = 10;
+    int atack;
+    int defence;
 public:
-    Character(string name_) {
+    Character(string name_, int hp_, int atack_, int defence_) {
         name = name_;
+        hp = hp_;
+        atack = atack_;
+        defence = defence_;
     }
     void printStatus() {
-        cout << "Your stats:" << endl;
+        cout << "Stats of " << name << endl;
         cout << "Hp: " << hp << endl;
         cout << "Atack: " << atack << endl;
         cout << "Defence: " << defence << endl;
@@ -27,16 +30,37 @@ protected:
     int gold;
     vector<string> inventory;
 public:
-    Player(string name_) : Character(name_) {
+    Player(string name_) : Character(name_, 100, 10, 5) {
         exp = 0;
         level = 1;
         gold = 0;
     }
 };
 
+class Enemy : public Character {
+protected:
+    int expReward;
+    int goldReward;
+public:
+    Enemy(string name_, int hp_, int atack_, int defence_, int expReward_, int goldReward_) : Character(name_, hp_, atack_, defence_) {
+        expReward = expReward_;
+        goldReward = goldReward_;
+    }
+
+    int getExpReward() {
+        return expReward;
+    }
+    int getGoldReward() {
+        return goldReward;
+    }
+};
+// шляпа
+
 int main() {
     string start_character_name;
     cout << "You are a wizard. What is your name?" << endl; cin >> start_character_name;
     Player player1("Wizard");
 
+    Enemy goblin("Goblin", 30, 5, 2, 10, 15);
+    goblin.printStatus();
 }
