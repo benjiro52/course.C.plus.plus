@@ -21,6 +21,16 @@ public:
         cout << "Atack: " << atack << endl;
         cout << "Defence: " << defence << endl;
     }
+
+    void takeDamage(int damage_hp) {
+        hp -= damage_hp;
+        if (hp < 0) hp = 0;
+        cout << name << " takes " << damage_hp << ". Hp left: " << hp << endl;
+    }
+    void atack(Character& target) {
+        hp = hp - atack + defence;
+        if (hp < 0) hp = 0;
+    }
 };
 
 class Player : public Character {
@@ -63,4 +73,5 @@ int main() {
 
     Enemy goblin("Goblin", 30, 5, 2, 10, 15);
     goblin.printStatus();
+    goblin.takeDamage(20);
 }
