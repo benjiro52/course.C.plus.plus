@@ -27,10 +27,11 @@ public:
         if (hp < 0) hp = 0;
         cout << name << " takes " << damage_hp << ". Hp left: " << hp << endl;
     }
-    void atack(Character& target) {
-        hp = hp - atack + defence;
-        if (hp < 0) hp = 0;
-    }
+    void attackTarget(Character& target) {
+        int damage = atack - target.defence;
+        if (damage < 0) damage = 0;
+        target.takeDamage(damage);
+    }   
 };
 
 class Player : public Character {
