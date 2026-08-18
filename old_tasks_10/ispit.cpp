@@ -9,3 +9,4 @@ int main() {
     cout << min(a, n - b);
     return 0;
 }
+// rest, i am so fucked up
