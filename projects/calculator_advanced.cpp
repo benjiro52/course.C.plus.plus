@@ -103,7 +103,7 @@ int main() {
     cout << "Enter a problem:" << endl;
     
     getline(cin, problem);
-
+    
     while (true) {
         calculating();
         x++;
