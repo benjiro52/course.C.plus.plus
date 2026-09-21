@@ -12,7 +12,7 @@ private:
 public:
     Subject(string subjetcName_) {
         subjectName = subjetcName_;
-    }
+    } 
 
     string getName() {
         return subjectName;
@@ -20,6 +20,18 @@ public:
     
     void addMark(int mark_) {
         vec_marks.push_back(mark_);
+    }
+
+    int getMarksSum() {
+        int sum = 0;
+
+        for (int i = 0; i < vec_marks.size(); i++) {
+            sum += vec_marks[i];
+        }
+        return sum;
+    }
+    int getMarksCount() {
+        return vec_marks.size();
     }
 
     void printInfo() {
@@ -41,7 +53,20 @@ int main () {
     while(isRunning) {
         clearConsole();
         cout << "benjiro's Notan" << endl << endl;
+
         if (!notan.empty()) {
+            double totalSum = 0;
+            int totalMarks = 0;
+
+            for (int i = 0; i < notan.size(); i++) {
+                totalSum += notan[i].getMarksSum();
+                totalMarks += notan[i].getMarksCount();
+            }
+            if (totalMarks > 0) {
+                double average = totalSum / totalMarks;
+                cout << "Average score: " << fixed << setprecision(1) << average << endl;
+            }
+
             cout << "Your subjects: " << endl;
             for (int i = 0; i < notan.size(); i++) {
                 notan[i].printInfo();
