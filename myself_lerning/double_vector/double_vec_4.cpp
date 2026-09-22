@@ -3,20 +3,18 @@ using namespace std;
 
 int main() {
     vector<vector<int>> vec = {
-        {-2, 5, -1}, 
-        {3, -7, 8}, 
-        {4, 0, -6} 
+        {1, 2, 3}, 
+        {4, 5, 6},
+        {7, 8, 9}  
     };
 
-    int odds = 0;
+    int sum = 0;
 
     for (int i = 0; i < vec.size(); i++) {
         for (int j = 0; j < vec[i].size(); j++) {
-            if (vec[i][j] > 0) {
-                odds++;
-            }
+            sum += vec[i][j];
         }
+        cout << sum << endl;
+        sum = 0;
     }
-
-    cout << odds;
 }
