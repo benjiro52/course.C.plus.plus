@@ -11,7 +11,7 @@ int main() {
     int sum = 0;
 
     for (int i = 0; i < vec.size(); i++) {
-        for (int j = 0; j < vec.size(); j++) {
+        for (int j = 0; j < vec[i].size(); j++) {
             sum += vec[i][j];
         }
     }
