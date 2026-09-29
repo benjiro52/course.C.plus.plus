@@ -17,9 +17,14 @@ public:
     string getName() {
         return subjectName;
     }
-    
-    void addMark(int mark_) {
-        vec_marks.push_back(mark_);
+
+    void del_Mark(int del_mark) {
+        for (int i = 0; i < vec_marks.size(); i++) {
+            if (vec_marks[i] == del_mark) {
+                vec_marks.erase(vec_marks.begin() + i);
+                return;
+            }
+        }
     }
 
     int getMarksSum() {
@@ -30,8 +35,13 @@ public:
         }
         return sum;
     }
+    
     int getMarksCount() {
         return vec_marks.size();
+    }
+    
+    void addMark(int mark_) {
+        vec_marks.push_back(mark_);
     }
 
     void printInfo() {
@@ -44,6 +54,9 @@ public:
     }
 
 };
+
+// delete subject
+// delete mark
 
 int main () {
     bool isRunning = true;
@@ -73,18 +86,21 @@ int main () {
             }
         }
 
-        cout << "Choose an action " << endl;
-        cout << "1 - Create school subject" << endl;
-        cout << "2 - Add a mark" << endl;
-        cout << "3 - Exit" << endl;
+        cout << "Choose an action\n";
+        cout << "1 - Create school subject\n";
+        cout << "2 - Delete school subject\n";
+        cout << "3 - Add a mark\n";
+        cout << "4 - Delete mark\n";
+        cout << "5 - Exit\n";
 
         cin >> choose_menu;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         if (choose_menu == 1) {
             clearConsole();
-            cout<<"Enter the subject name" << endl;
+            cout<<"Enter the subject name: ";
 
-            string subject_name_menu; cin >> subject_name_menu;
+            string subject_name_menu; getline(cin, subject_name_menu);
 
             Subject subject(subject_name_menu);
             notan.push_back(subject);
@@ -92,20 +108,50 @@ int main () {
 
         if (choose_menu == 2) {
             clearConsole();
+            cout << "Enter the subject name: ";
+            string subject_name_menu_del; getline(cin, subject_name_menu_del);
+
+            for (int i = 0; i < notan.size(); i++) {
+                if (notan[i].getName() == subject_name_menu_del) {
+                    notan.erase(notan.begin() + i);
+                    break;
+                }
+            }
+        }
+
+        if (choose_menu == 3) {
+            clearConsole();
             string subject_name_mark;
             int add_mark_notan;
 
-            cout << "Enter the subject name: "; cin >> subject_name_mark;
+            cout << "Enter the subject name: "; getline(cin, subject_name_mark);
             cout << "Enter a mark: "; cin >> add_mark_notan;
             
             for (int i = 0; i < notan.size(); i++) {
                 if (notan[i].getName() == subject_name_mark) {
                     notan[i].addMark(add_mark_notan);
+                    break;
                 }
             }
         }
 
-        if (choose_menu == 3){
+        if (choose_menu == 4) {
+            clearConsole();
+            cout << "Enter the subject name: ";
+            string subject_name_menu_del_m; getline(cin, subject_name_menu_del_m);
+
+            cout << "Enter a mark: ";
+            int del_mark_notan; cin >> del_mark_notan;
+
+            for (int i = 0; i < notan.size(); i++) {
+                if (notan[i].getName() == subject_name_menu_del_m) {
+                    notan[i].del_Mark(del_mark_notan);
+                    break;
+                }
+            }
+        }
+
+        if (choose_menu == 5){
             isRunning = false;
         } 
     }
