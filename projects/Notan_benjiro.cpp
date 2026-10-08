@@ -55,9 +55,6 @@ public:
 
 };
 
-// delete subject
-// delete mark
-
 int main () {
     bool isRunning = true;
     int choose_menu = 0;
